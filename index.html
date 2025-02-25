@@ -7,22 +7,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="particles-container">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <!-- Add more particles as needed -->
+    <div class="floating-shapes">
+        <div class="shape circle"></div>
+        <div class="shape triangle"></div>
+        <div class="shape square"></div>
     </div>
     
     <div class="container">
-        <div class="hero-content">
-            <h1 class="animated-title">Welcome to the Frontend Journey 🚀</h1>
-            <p class="animated-subtitle">Embark on a 25-week adventure mastering HTML, CSS, JavaScript, and React!<br> Build projects and gain hands-on experience.</p>
-            <a href="Roadmap.html" class="btn pulse">
-                <span class="btn-text">Start the Journey</span>
-                <div class="btn-gradient"></div>
-            </a>
-        </div>
+        <h1 class="animated-title">Welcome to the Frontend Journey 🚀</h1>
+        <p class="animated-subtitle">Embark on a 25-week adventure mastering HTML, CSS, JavaScript, and React!<br> Build projects and gain hands-on experience.</p>
+        <a href="Roadmap.html" class="btn pulse">Start the Journey</a>
     </div>
 
     <footer class="animated-footer">
@@ -30,22 +24,15 @@
     </footer>
 
     <style>
-    :root {
-        --primary-color: #ff6f61;
-        --secondary-color: #2a5298;
-        --accent-color: #4a6da7;
-    }
-
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Poppins', system-ui, sans-serif;
+        font-family: 'Segoe UI', system-ui, sans-serif;
     }
 
     body {
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
@@ -54,10 +41,9 @@
         text-align: center;
         overflow-x: hidden;
         position: relative;
-        line-height: 1.6;
     }
 
-    .particles-container {
+    .floating-shapes {
         position: fixed;
         width: 100vw;
         height: 100vh;
@@ -65,157 +51,164 @@
         z-index: 0;
     }
 
-    .particle {
+    .shape {
         position: absolute;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        animation: float 15s infinite linear;
-        filter: blur(2px);
+        opacity: 0.1;
+        animation: float 20s infinite linear;
     }
 
-    @keyframes particles {
-        0% { transform: translateY(0) rotate(0deg); }
-        100% { transform: translateY(-100vh) rotate(360deg); }
+    .circle {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background: rgba(255, 111, 97, 0.3);
+        top: 20%;
+        left: 10%;
+    }
+
+    .triangle {
+        width: 0;
+        height: 0;
+        border-left: 75px solid transparent;
+        border-right: 75px solid transparent;
+        border-bottom: 130px solid rgba(46, 204, 113, 0.3);
+        top: 60%;
+        right: 15%;
+    }
+
+    .square {
+        width: 100px;
+        height: 100px;
+        background: rgba(155, 89, 182, 0.3);
+        top: 40%;
+        right: 25%;
     }
 
     .container {
         max-width: 800px;
-        padding: 3rem;
+        padding: 2rem;
         position: relative;
         z-index: 1;
         background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-radius: 30px;
-        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
-        border: 1px solid rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         margin: 1rem;
-        transform-style: preserve-3d;
-        transition: transform 0.3s ease;
-    }
-
-    .container:hover {
-        transform: translateY(-5px) scale(1.02);
     }
 
     .animated-title {
-        font-size: clamp(2.5rem, 6vw, 4rem);
-        margin-bottom: 2rem;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        margin-bottom: 1.5rem;
         background: linear-gradient(45deg, #ff6f61, #ffd700);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
-        opacity: 0;
-        transform: translateY(20px);
-        animation: titleReveal 1s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        animation: slideInLeft 1s ease-out;
     }
 
     .animated-subtitle {
-        font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-        margin-bottom: 3rem;
-        color: rgba(255, 255, 255, 0.95);
-        opacity: 0;
-        transform: translateY(20px);
-        animation: subtitleReveal 1s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s forwards;
+        font-size: clamp(1rem, 2.5vw, 1.3rem);
+        margin-bottom: 2rem;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.9);
+        animation: slideInRight 1s ease-out 0.3s backwards;
     }
 
     .btn {
         display: inline-flex;
-        position: relative;
-        padding: 1.2rem 3rem;
-        background: linear-gradient(45deg, var(--primary-color), #ff3b2f);
+        align-items: center;
+        gap: 0.8rem;
+        padding: 1rem 2.5rem;
+        background: linear-gradient(45deg, #ff6f61, #ff3b2f);
         color: white;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         text-decoration: none;
         border-radius: 50px;
-        transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 111, 97, 0.3);
+        position: relative;
         overflow: hidden;
         border: none;
         cursor: pointer;
-        isolation: isolate;
     }
 
-    .btn-gradient {
+    .btn::before {
+        content: '';
         position: absolute;
         top: 0;
-        left: 0;
-        width: 200%;
+        left: -100%;
+        width: 100%;
         height: 100%;
         background: linear-gradient(
             120deg,
-            transparent 25%,
-            rgba(255, 255, 255, 0.2) 50%,
-            transparent 75%
+            transparent,
+            rgba(255, 255, 255, 0.3),
+            transparent
         );
-        transform: translateX(-100%);
-        transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        transition: 0.5s;
     }
 
-    .btn:hover .btn-gradient {
-        transform: translateX(50%);
+    .btn:hover::before {
+        left: 100%;
     }
 
     .btn:hover {
-        box-shadow: 0 12px 30px rgba(255, 111, 97, 0.4);
         transform: translateY(-3px);
-    }
-
-    .btn:active {
-        transform: translateY(0);
+        box-shadow: 0 8px 25px rgba(255, 111, 97, 0.5);
     }
 
     .pulse {
-        animation: pulse 2s infinite ease-in-out;
+        animation: pulse 2s infinite;
     }
 
     footer {
         position: fixed;
-        bottom: 2rem;
-        font-size: 0.95rem;
-        color: rgba(255, 255, 255, 0.85);
-        opacity: 0;
-        animation: fadeInUp 1s ease 1.2s forwards;
+        bottom: 1rem;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.8);
+        animation: fadeInUp 1s ease-out 1s backwards;
     }
 
     /* Animations */
-    @keyframes titleReveal {
+    @keyframes slideInLeft {
         from {
+            transform: translateX(-100%);
             opacity: 0;
-            transform: translateY(20px);
         }
         to {
+            transform: translateX(0);
             opacity: 1;
-            transform: translateY(0);
         }
     }
 
-    @keyframes subtitleReveal {
+    @keyframes slideInRight {
         from {
+            transform: translateX(100%);
             opacity: 0;
-            transform: translateY(20px);
         }
         to {
+            transform: translateX(0);
             opacity: 1;
-            transform: translateY(0);
         }
     }
 
     @keyframes pulse {
         0% { transform: scale(1); }
-        50% { transform: scale(1.08); }
+        50% { transform: scale(1.05); }
         100% { transform: scale(1); }
     }
 
     @keyframes float {
         0% { transform: translateY(0) rotate(0deg); }
-        50% { transform: translateY(-40px) rotate(180deg); }
+        50% { transform: translateY(-20px) rotate(180deg); }
         100% { transform: translateY(0) rotate(360deg); }
     }
 
     @keyframes fadeInUp {
         from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
         }
         to {
             opacity: 1;
@@ -223,86 +216,31 @@
         }
     }
 
-    /* Responsive Design */
     @media (max-width: 768px) {
         .container {
-            padding: 2rem;
-            margin: 1.5rem;
-            border-radius: 20px;
+            margin: 1rem;
+            padding: 1.5rem;
         }
 
         .btn {
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
         }
 
-        .particle {
+        .shape {
             display: none;
         }
     }
 
     @media (max-width: 480px) {
-        .container {
-            padding: 1.5rem;
-        }
-
         .animated-title {
-            font-size: 2.2rem;
+            font-size: 2rem;
         }
 
         .animated-subtitle {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-        }
-
-        footer {
-            font-size: 0.8rem;
-            bottom: 1rem;
-        }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-        * {
-            animation: none !important;
-            transition: none !important;
+            font-size: 1rem;
         }
     }
     </style>
-
-    <script>
-    // Add intersection observer for scroll animations
-    document.addEventListener('DOMContentLoaded', () => {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-    });
-
-    // Add ripple effect to button
-    document.querySelector('.btn').addEventListener('click', function(e) {
-        let ripple = document.createElement('div');
-        ripple.style.position = 'absolute';
-        ripple.style.width = '20px';
-        ripple.style.height = '20px';
-        ripple.style.background = 'rgba(255, 255, 255, 0.4)';
-        ripple.style.borderRadius = '50%';
-        ripple.style.transform = 'translate(-50%, -50%)';
-        ripple.style.pointerEvents = 'none';
-        ripple.style.left = e.offsetX + 'px';
-        ripple.style.top = e.offsetY + 'px';
-        this.appendChild(ripple);
-        
-        setTimeout(() => ripple.remove(), 600);
-    });
-    </script>
 </body>
 </html>

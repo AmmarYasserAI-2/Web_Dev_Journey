@@ -134,29 +134,7 @@ Here’s the **Sources Card**✨
 
 ---
 
-## **✅ 3 - Tailwind CSS 🌪️ (2 Hours 46 Minutes)**  
-1. 🌪️ Intro to Tailwind  
-2. 🛠️ How Tailwind Works  
-3. 🌍 Domain Name  
-4. 🚀 Crash Course  
-5. 🏗️ Project Setup  
-6. 🎨 Building the App  
-7. 📦 Creating Components  
-8. 🔝 NavBar  
-9. 🎭 Hero Section  
-10. 👟 Shoe Card  
-11. 🔥 Popular Products Section  
-12. 🏆 Super Quality Section  
-13. 🎁 Services Section  
-14. 🎯 Special Offer Section  
-15. ⭐ Customer Reviews Section  
-16. 📩 Subscription Section  
-17. ⚓ Footer Section  
-18. 🚀 Deployment  
-
----
-
-## **✅ 4 - React JS ⚛️ (4 Hours 43 Minutes)**  
+## **✅ 3 - React JS ⚛️ (4 Hours 43 Minutes)**  
 1. ⚛️ React Tutorial for Beginners  
 2. 📦 Card Components  
 3. 🎨 Add CSS Styles  
